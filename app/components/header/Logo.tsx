@@ -1,5 +1,6 @@
-import { Link } from 'react-scroll'
+
 import { FC } from 'react'
+import ScrollLink from '../ScrollLink'
 
 interface LogoProps {
 
@@ -8,15 +9,10 @@ interface LogoProps {
 const Logo: FC<LogoProps> = ({ }) => {
     return (
         <div className="">
-            <Link
+            <ScrollLink
                 className="text-gray-600 text-lg font-bold dark:text-gray-400 cursor-pointer"
-                activeClass="active"
-                to={"home"}
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={1000}
-            >Rommel V.</Link>
+                href='#home'
+            >Rommel V.</ScrollLink>
 
         </div>
     )

@@ -1,20 +1,32 @@
-import { FC } from 'react'
+"use client";
 
-interface ModeProps {
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react';
+import { BsFillBrightnessHighFill, BsMoon } from "react-icons/bs";
 
-}
 
-const Mode: FC<ModeProps> = ({ }) => {
+const Mode = () => {
+    const [mounted, setMounted] = useState(false)
+    const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
+
     return (
         <div className="text-gray-300 cursor-pointer">
-            {darkMode ?
+            {theme === 'dark' ?
                 <BsFillBrightnessHighFill
                     className="w-6 h-6 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    onClick={onSetDarkMode}
+                    onClick={() => setTheme('light')}
                 /> :
                 <BsMoon
                     className="text-gray-700 w-6 h-6 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    onClick={onSetDarkMode}
+                    onClick={() => setTheme('dark')}
                 />}
         </div>
     )

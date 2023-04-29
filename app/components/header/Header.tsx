@@ -1,10 +1,7 @@
-import { FC } from 'react'
 import Logo from './Logo'
 import Menu from './Menu';
+import Mode from './Mode';
 
-// interface HeaderProps {
-//     handleScroll: () => void;
-// }
 
 const Header = () => {
     return (
@@ -15,9 +12,10 @@ const Header = () => {
                 <Mode />
             </div>
             <div className="md:hidden w-full">
-                <Mobile />
+                {/* <Mobile /> */}
             </div>
         </div>
     )
+}
 
-    export default Header
+export default Header
